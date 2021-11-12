@@ -27,18 +27,18 @@ app.listen(portNum, () =>{ // callback function that returns a message to ensure
 
 // 1-->> POST Request here :
 // used to store the data
-app.post('/saveEntry' , (request, response) => {
+app.post('/saveEntry' , (req, res) => {
     // should store the specified data in the object [projectData] to be shown using the GET route
-    projectData = request.body; // this the use of the bodyParser
+    projectData = req.body; // this the use of the bodyParser
     console.log(projectData);
-    response.send();
+    res.send();
 });
 
 // 2-->> GET Request here :
 // used to show the data
-app.get('/getEntry' , (request, response) => {
+app.get('/getEntry' , (req, res) => {
     // should show the data that stored dynamically using the POST route in the object [projectData]
-    response.send(projectData); 
+    res.send(projectData); 
 });
 
 // Some ZIPCODES -->> ARGENTINA = [20260]  ----  USA = [94040]

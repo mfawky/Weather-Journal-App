@@ -18,7 +18,7 @@ async function callOpenWeather() {
   const zipCode = document.getElementById("zip").value;
 
   // saving the url related to ZipCode and the unique API key in a variable [const]
-  const weatherMapUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${weatherMapApiKey}`;
+  const weatherMapUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${weatherMapApiKey}&units=metric`;
   // the fetch prperty is used to go and get the wanted info from this URL and logging in useing the unique API KEY
   // instead this way there are other ways that achieve the same purpose such as {chaining promising and parsing }
   const res = await fetch(weatherMapUrl);
@@ -35,7 +35,7 @@ async function callOpenWeather() {
   return temprature;
 }
 
-// function that stores te data [date , feeling , temprature] 
+// function that stores te data [date , feeling , temprature]
 async function saveEntry(info) {
   // Create a new date instance dynamically with JS
   let d = new Date();
@@ -59,7 +59,7 @@ async function getEntry() {
 
 // function to show the data collected by the get route in the UI
 function renderEntry(entry) {
-  document.getElementById("date").innerHTML = entry.date; // adds the date to {Most Recent Entry} section
   document.getElementById("temp").innerHTML = entry.temp; // adds the temprature to {Most Recent Entry} section
+  document.getElementById("date").innerHTML = entry.date; // adds the date to {Most Recent Entry} section
   document.getElementById("content").innerHTML = entry.content; // adds the feeling written by the user to {Most Recent Entry} section
 }
